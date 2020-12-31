@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace ExamApp.Models
+{
+    public class Subject
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+    }
+}
