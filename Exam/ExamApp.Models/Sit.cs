@@ -8,7 +8,9 @@ namespace ExamApp.Models
     {
         public int Id { get; set; }
         public int ExamId { get; set; }
-        public int AtendeeId { get; set; }
+        public Exam Exam { get; set; }
+        public int AttendeeId { get; set; }
+        public Attendee Attendee { get; set; }
         
     }
 }
