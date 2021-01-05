@@ -18,18 +18,13 @@ namespace RecipeApp.Database
         }
         public List<Ingredient> GetIngredientList ()
         {
-            string relPath = Path.GetRelativePath("Ingredients.csv", @"C:\Users\User\Desktop\Tasks\Recipe\RecipeApp.Database\Ingredients.csv");
-            Console.WriteLine(relPath);
-            return _csvParser.ReadCsvFileToIngredient(@"C:\Users\User\Desktop\Tasks\Recipe\RecipeApp.Database\Ingredients.csv").ToList();
-            //return _csvParser.ReadCsvFileToIngredient(@"..\..\..\..\..\RecipeApp.Database\Ingredients.csv").ToList(); 
+            return _csvParser.ReadCsvFileToIngredient("..\\..\\..\\Files\\Ingredients.csv").ToList();  // path shouldnt be provided here ?
         }
 
         public List<Recipe> GetRecipeList()
         {
-            string relPath = Path.GetRelativePath("Recipes.csv", @"C:\Users\User\Desktop\Tasks\Recipe\RecipeApp.Database\Recipes.csv");
-            Console.WriteLine(relPath);
-            return _csvParser.ReadCsvFileToRecipe(@"C:\Users\User\Desktop\Tasks\Recipe\RecipeApp.Database\Recipes.csv").ToList();
-            //return _csvParser.ReadCsvFileToRecipe(@"..\..\..\..\..\RecipeApp.Database\Recipes.csv").ToList();
+            
+            return _csvParser.ReadCsvFileToRecipe("..\\..\\..\\Files\\Recipes.csv").ToList();
         }
 
 
