@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
+
 namespace RecipeApp
 {
     class Program
@@ -32,9 +33,12 @@ namespace RecipeApp
             var recipe = _sP.GetService<IRecipeService>();
             var ingredient = _sP.GetService<IIngredientService>();
 
+            var pathIngredient = "..\\..\\..\\Ingredients.csv";
+            var pathRecipe = "..\\..\\..\\Recipes.csv";
+           
             var allUsers = user.GetAllUsers();
-            var ingredientById = ingredient.GetIngredientById(new Guid("5800170F-C1C7-C8F5-78B5-C95A20C6129D"));
-            var recipesByUser = recipe.GetRecipesByUser(2);
+            var ingredientById = ingredient.GetIngredientById(new Guid("5800170F-C1C7-C8F5-78B5-C95A20C6129D"), pathIngredient);
+            var recipesByUser = recipe.GetRecipesByUser(2, pathRecipe);
 
 
             // Adding data

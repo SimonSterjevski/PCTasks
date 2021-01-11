@@ -5,8 +5,8 @@ namespace RecipeApp.Database
 {
     public interface IDbImprovisation
     {
-        List<Ingredient> GetIngredientList();
-        List<Recipe> GetRecipeList();
+        List<Ingredient> GetIngredientList(string path);
+        List<Recipe> GetRecipeList(string path);
         
     }
 }

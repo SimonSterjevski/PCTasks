@@ -19,25 +19,25 @@ namespace RecipeApp.Service
             _recipeRepo = recipeRepo;
             _ingredientRepo = ingredientRepo;
         }
-        public List<Recipe> GetAllRecipes()
+        public List<Recipe> GetAllRecipes(string path)
         {
-            return _recipeRepo.GetAll();
+            return _recipeRepo.GetAll(path);
         }
 
-        public Recipe GetRecipeById(Guid id)
+        public Recipe GetRecipeById(Guid id, string path)
         {
-            return _recipeRepo.GetById(id);
+            return _recipeRepo.GetById(id, path);
         }
 
-        public List<Recipe> GetRecipesByIngredient(Guid ingredientId)
+        public List<Recipe> GetRecipesByIngredient(Guid ingredientId, string path)
         {
-            var ingredient = _ingredientRepo.GetById(ingredientId);
+            var ingredient = _ingredientRepo.GetById(ingredientId, path);
             return ingredient.Recipes; // no data yet
         }
 
-        public List<Recipe> GetRecipesByUser(int userId)
+        public List<Recipe> GetRecipesByUser(int userId, string path)
         {
-            return _recipeRepo.GetAll().Where(x => x.UserId == userId).ToList(); // Recipes list in User object is empty
+            return _recipeRepo.GetAll(path).Where(x => x.UserId == userId).ToList(); // Recipes list in User object is empty
         }
     }
 }

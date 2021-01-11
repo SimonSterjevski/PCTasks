@@ -14,14 +14,14 @@ namespace RecipeApp.Repo
         {
             _dbImprovisation = dbImprovisation;
         }
-        public List<Recipe> GetAll()
+        public List<Recipe> GetAll(string path)
         {
-            return _dbImprovisation.GetRecipeList();
+            return _dbImprovisation.GetRecipeList(path);
         }
 
-        public Recipe GetById(Guid id)
+        public Recipe GetById(Guid id, string path)
         {
-            return _dbImprovisation.GetRecipeList().FirstOrDefault(x => x.Id == id);
+            return _dbImprovisation.GetRecipeList(path).FirstOrDefault(x => x.Id == id);
         }
 
     }

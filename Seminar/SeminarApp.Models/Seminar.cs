@@ -7,7 +7,7 @@ namespace SeminarApp.Models
 {
     public class Seminar
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public Course Course { get; set; }
         public Professor Professor { get; set; }
@@ -15,7 +15,8 @@ namespace SeminarApp.Models
 
         public void AddStudent(Student student)
         {
-            if (WaitingList.Select(x => x.Id).Contains(student.Id))
+            Student studentFound = WaitingList.FirstOrDefault(x => x.Id == student.Id);
+            if (studentFound != null)
             {
                 Console.WriteLine("Student exists!");
             } else
@@ -26,7 +27,8 @@ namespace SeminarApp.Models
 
         public void RemoveStudent(Student student)
         {
-            if (!WaitingList.Select(x => x.Id).Contains(student.Id))
+            Student studentFound = WaitingList.FirstOrDefault(x => x.Id == student.Id);
+            if (studentFound == null)
             {
                 Console.WriteLine("No such student");
             } else

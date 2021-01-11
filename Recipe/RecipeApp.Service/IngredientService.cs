@@ -16,19 +16,19 @@ namespace RecipeApp.Service
             _recipeRepo = recipeRepo;
             _ingredientRepo = ingredientRepo;
         }
-        public List<Ingredient> GetAllIngredients()
+        public List<Ingredient> GetAllIngredients(string path)
         {
-            return _ingredientRepo.GetAll();
+            return _ingredientRepo.GetAll(path);
         }
 
-        public Ingredient GetIngredientById(Guid id)
+        public Ingredient GetIngredientById(Guid id, string path)
         {
-            return _ingredientRepo.GetById(id);
+            return _ingredientRepo.GetById(id, path);
         }
 
-        public List<Ingredient> GetIngredientsByRecipe(Guid recipeId)
+        public List<Ingredient> GetIngredientsByRecipe(Guid recipeId, string path)
         {
-            var recipe = _recipeRepo.GetById(recipeId);
+            var recipe = _recipeRepo.GetById(recipeId, path);
             return recipe.Ingredients; // No data yet
         }
     }

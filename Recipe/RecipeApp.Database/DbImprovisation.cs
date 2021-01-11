@@ -16,15 +16,15 @@ namespace RecipeApp.Database
         {
             _csvParser = csvParser;
         }
-        public List<Ingredient> GetIngredientList ()
+        public List<Ingredient> GetIngredientList(string path)
         {
-            return _csvParser.ReadCsvFileToIngredient("..\\..\\..\\Files\\Ingredients.csv").ToList();  // path shouldnt be provided here ?
+            return _csvParser.ReadCsvFileToIngredient(path).ToList();  
         }
 
-        public List<Recipe> GetRecipeList()
+        public List<Recipe> GetRecipeList(string path)
         {
             
-            return _csvParser.ReadCsvFileToRecipe("..\\..\\..\\Files\\Recipes.csv").ToList();
+            return _csvParser.ReadCsvFileToRecipe(path).ToList();
         }
 
 

@@ -6,7 +6,7 @@ namespace RecipeApp.Repo
 {
     public interface IRepo<T>
     {
-        List<T> GetAll();
-        T GetById(Guid id);
+        List<T> GetAll(string path);
+        T GetById(Guid id, string path);
     }
 }

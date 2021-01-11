@@ -6,7 +6,7 @@ namespace SeminarApp.Models
 {
     public class Course
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public double Fees { get; set; }
         public List<Seminar> Seminars {get; set; }
         protected string Description { get; set; }

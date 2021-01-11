@@ -7,9 +7,9 @@ namespace RecipeApp.Service
 {
     public interface IRecipeService
     {
-        List<Recipe> GetAllRecipes();
-        Recipe GetRecipeById(Guid id);
-        List<Recipe> GetRecipesByUser(int userId);
-        List<Recipe> GetRecipesByIngredient(Guid ingredientId);
+        List<Recipe> GetAllRecipes(string path);
+        Recipe GetRecipeById(Guid id, string path);
+        List<Recipe> GetRecipesByUser(int userId, string path);
+        List<Recipe> GetRecipesByIngredient(Guid ingredientId, string path);
     }
 }

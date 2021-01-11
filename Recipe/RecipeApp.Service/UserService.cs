@@ -26,9 +26,9 @@ namespace RecipeApp.Service
             return _userRepo.GetById(id);
         }
 
-        public User GetUserByRecipe(Guid id)
+        public User GetUserByRecipe(Guid id, string path)
         {
-            var userId = _recipeRepo.GetById(id).UserId;
+            var userId = _recipeRepo.GetById(id, path).UserId;
             return _userRepo.GetById(userId);  // User object in Recipe will be null, needs to added manually
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace RecipeApp.Helpers
@@ -15,6 +16,12 @@ namespace RecipeApp.Helpers
 
         public List<Ingredient> ReadCsvFileToIngredient(string path)
         {
+            //var absPath = Path.GetFullPath("Ingredient.csv");
+            //var directory = Directory.GetCurrentDirectory();
+            //var relativePath = Path.GetRelativePath(directory, absPath);
+            //Console.WriteLine(absPath);
+            //Console.WriteLine(directory);
+            //Console.WriteLine(relativePath);
             using (var reader = new StreamReader(path, Encoding.Default))
             using (var csv = new CsvReader(reader, CultureInfo.CurrentCulture))
             {
@@ -26,6 +33,7 @@ namespace RecipeApp.Helpers
 
         public List<Recipe> ReadCsvFileToRecipe(string path)
         {
+            //var relativePath = Path.GetRelativePath(path, "Recipe.csv");
             Random random = new Random();
             using (var reader = new StreamReader(path, Encoding.Default))
             using (var csv = new CsvReader(reader, CultureInfo.CurrentCulture))

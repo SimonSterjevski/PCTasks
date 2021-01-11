@@ -15,21 +15,17 @@ namespace SeminarApp.Models
             base.Name = name;
             base.Birthday = birthday;
         }
-        public string Id { get; set; }
+        public int Id { get; set; }
         public SeminarEnrolement SeminarEnrolement { get; set; }
         public override ArrayList GetSeminars() 
         {
-            List<Seminar> listOfSeminars = SeminarEnrolement.Seminars.Where(x => x.WaitingList.Select(y => y.Id).Contains(Id)).ToList();
+            List<Seminar> listOfSeminars = SeminarEnrolement.Seminars.Where(x => x.WaitingList.Select(x => x.Id).Contains(Id)).ToList();
             return new ArrayList(listOfSeminars);
         }
-        public override bool IsEligble(string seminarId)
+        public override bool IsEligble(int seminarId)
         {
             List<Seminar> listOfSeminars = GetSeminars().Cast<Seminar>().ToList();
-            if (!listOfSeminars.Select(x => x.Id).Contains(seminarId))
-            {
-                return false;
-            }
-            return true;
+            return listOfSeminars.Any(x => x.Id == seminarId);
         }
 
     }

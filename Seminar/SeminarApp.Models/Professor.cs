@@ -8,7 +8,7 @@ namespace SeminarApp.Models
 {
     public class Professor : Person
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public SeminarEnrolement SeminarEnrolement { get; set; }
         public override ArrayList GetSeminars()
         {
@@ -16,14 +16,10 @@ namespace SeminarApp.Models
             return new ArrayList(listOfSeminars);
         }
 
-        public override bool IsEligble(string seminarId)
+        public override bool IsEligble(int seminarId)
         {
             List<Seminar> listOfSeminars = GetSeminars().Cast<Seminar>().ToList();
-            if (!listOfSeminars.Select(x => x.Id).Contains(seminarId))
-            {
-                return false;
-            }
-            return true;
+            return listOfSeminars.Any(x => x.Id == seminarId);
         }
     }
 }

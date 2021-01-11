@@ -40,5 +40,25 @@ namespace FamilyTreeApp.Methods
             }
             //newDots = dots.Remove(dots.Length - 3);
         }
+
+        //public static void ShowFamilyTree1(List<Person> family, Person father, List<Person> list)
+        //{
+        //    //Console.WriteLine($"{oldest.Name} is the ancestor");
+          
+        //    foreach (var person in family)
+        //    {
+        //        if (person.ParentId == father.Id && !list.Contains(person))
+        //        {
+        //            Console.WriteLine($"{person.Name}, son of {father.Name}");
+        //            list.Add(person);
+        //            if (family.Select(x => x.ParentId).Contains(person.Id))
+        //            {
+        //                father = person;
+        //                Console.WriteLine(father.Name);
+        //                ShowFamilyTree1(family, father, list);
+        //            }
+        //        }
+        //    }
+        }
+
     }
-}

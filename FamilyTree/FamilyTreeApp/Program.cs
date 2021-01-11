@@ -8,6 +8,22 @@ namespace FamilyTreeApp
 {
     class Program
     {
+
+        //public class Item
+        //{
+        //    public int Id { get; set; }
+        //    public int ParentId { get; set; }
+        //    public string Name { get; set; }
+        //    public string Path { get; set; }
+        //    public Item(int id, int parentId, string name)
+        //    {
+        //        Id = id;
+        //        ParentId = parentId;
+        //        Name = name;
+        //    }
+        //}
+
+
         static void Main(string[] args)
         {
             var breadley = new Person(1, "Bradley", new DateTime(1930, 1, 18), 0);
@@ -29,9 +45,38 @@ namespace FamilyTreeApp
 
             Console.ReadLine();
 
+            //FamilyTreeInfo.ShowFamilyTree1(familyMembers, father, new List<Person>());
 
-           
+            //    var items = new List<Item>() {
+            //    new Item(1, 0, "Ralph"),
+            //    new Item(2, 1, "Ron"),
+            //    new Item(3, 2, "Vin"),
+            //    new Item(4, 1, "Armando"),
+            //    new Item(5, 2, "Alex"),
+            //    new Item(6, 3, "Ana")
+            //    };
+            //    items.ForEach(item => Console.WriteLine($"{item.Name} {GetParentsString(items, item)}"));
 
+
+            //}
+
+            //static string GetParentsString(List<Item> all, Item current)
+            //{
+            //    string path = "";
+            //    Action<List<Item>, Item> GetPath = null;
+            //    GetPath = (List<Item> ps, Item p) => {
+            //        var parents = all.Where(x => x.Id == p.ParentId);
+            //        foreach (var parent in parents)
+            //        {
+            //            path += $"{ parent.Name}";
+            //            GetPath(ps, parent);
+            //        }
+            //    };
+            //    GetPath(all, current);
+            //    string[] split = path.Split(new char[] { '/' });
+            //    Array.Reverse(split);
+            //    return string.Join("/", split);
+            //}
         }
     }
 }

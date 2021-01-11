@@ -9,6 +9,6 @@ namespace RecipeApp.Service
     {
         List<User> GetAllUsers();
         User GetUserById(int id);
-        User GetUserByRecipe(Guid id);
+        User GetUserByRecipe(Guid id, string path);
     }
 }

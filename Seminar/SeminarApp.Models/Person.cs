@@ -12,7 +12,7 @@ namespace SeminarApp.Models
         public Address Address { get; set; }
         public string Email { get; set; }
         public abstract ArrayList GetSeminars();
-        public abstract bool IsEligble(string seminarId);
+        public abstract bool IsEligble(int seminarId);
        
     }
 }
