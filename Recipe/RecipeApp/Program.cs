@@ -35,6 +35,8 @@ namespace RecipeApp
 
             var pathIngredient = "..\\..\\..\\Ingredients.csv";
             var pathRecipe = "..\\..\\..\\Recipes.csv";
+            var path = Path.GetFullPath("Recipes.csv");
+            Console.WriteLine(path);
            
             var allUsers = user.GetAllUsers();
             var ingredientById = ingredient.GetIngredientById(new Guid("5800170F-C1C7-C8F5-78B5-C95A20C6129D"), pathIngredient);

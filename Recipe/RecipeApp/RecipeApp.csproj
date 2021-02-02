@@ -19,4 +19,10 @@
     <ProjectReference Include="..\RecipeApp.Service\RecipeApp.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Program.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
 </Project>
