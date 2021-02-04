@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CompanyApp.Logic
 {
-    public interface ISuplyImplementation
+    public interface ISuply
     {
         void CreateAndAddSuply(Demand demand);
     }

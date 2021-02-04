@@ -14,7 +14,7 @@ namespace CompanyApp.Helpers
             services.AddTransient<IWarehouseRepo, WarehouseRepo>();
             services.AddTransient<IProductRepo, ProductRepo>();
             services.AddTransient<IDeliveryRepo, DeliveryRepo>();
-            services.AddTransient<ISuplyImplementation, SuplyImplementation>();
+            services.AddTransient<ISuply, SuplyImplentation>();
         }
     }
 }

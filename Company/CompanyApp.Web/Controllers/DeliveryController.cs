@@ -13,8 +13,8 @@ namespace CompanyApp.Web.Controllers
     [ApiController]
     public class DeliveryController : ControllerBase
     {
-        private ISuplyImplementation _suplyImplementation;
-        public DeliveryController(ISuplyImplementation suplyImplementation)
+        private ISuply _suplyImplementation;
+        public DeliveryController(ISuply suplyImplementation)
         {
             _suplyImplementation = suplyImplementation;
         }

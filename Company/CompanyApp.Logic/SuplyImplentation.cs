@@ -8,14 +8,14 @@ using System.Text;
 
 namespace CompanyApp.Logic
 {
-    public class SuplyImplementation: ISuplyImplementation
+    public class SuplyImplentation: ISuply
     {
         private IStoreRepo _storeRepo;
         private IWarehouseRepo _warehouseRepo;
         private IDeliveryRepo _deliveryRepo;
         private IProductRepo _productRepo;
 
-        public SuplyImplementation(IStoreRepo storeRepo, IWarehouseRepo warehouseRepo, IDeliveryRepo deliveryRepo, IProductRepo productRepo)
+        public SuplyImplentation(IStoreRepo storeRepo, IWarehouseRepo warehouseRepo, IDeliveryRepo deliveryRepo, IProductRepo productRepo)
         {
             _storeRepo = storeRepo;
             _warehouseRepo = warehouseRepo;
@@ -24,14 +24,12 @@ namespace CompanyApp.Logic
         }
         public void CreateAndAddSuply(Demand demand)
         {
-            //List<Warehouse> warehouses = _warehouseRepo.GetAll();     // can they stay here ????
-            //List<Store> stores = _storeRepo.GetAll();
+            List<Warehouse> warehouses = _warehouseRepo.GetAll();     
+            Store store = _storeRepo.GetOne(demand.StoreId);
+            Product product = _productRepo.GetOne(demand.ProductId);
 
             while (demand.Quantity > 0)
             {
-                List<Warehouse> warehouses = _warehouseRepo.GetAll();
-                List<Store> stores = _storeRepo.GetAll();
-
                 var warehouse = warehouses.FirstOrDefault(x => x.WarehouseItems.Any(x => x.ProductId == demand.ProductId && x.Quantity > 0));
                 var warehouseItem = warehouse.WarehouseItems.FirstOrDefault(x => x.ProductId == demand.ProductId);
                 var quantity = demand.Quantity;
@@ -55,7 +53,7 @@ namespace CompanyApp.Logic
                     Quantity = quantity
                 };
 
-                AddAndRemoveStock(newSuply);
+                AddAndRemoveStock(warehouse ,store, product, quantity);
 
                 _deliveryRepo.Add(newSuply);   
 
@@ -65,15 +63,11 @@ namespace CompanyApp.Logic
            
         }
 
-        private void AddAndRemoveStock(SuplyActivity newSuply)
+        private void AddAndRemoveStock(Warehouse warehouse, Store store, Product product, double quantity)
         {
-            var store = _storeRepo.GetOne(newSuply.StoreId);
-            var warehouse = _warehouseRepo.GetOne(newSuply.WarehouseId);
-            var product = _productRepo.GetOne(newSuply.ProductId);
-
-            store.StoreItems.Where(x => x.ProductId == newSuply.ProductId).ToList().ForEach(x => x.Quantity += newSuply.Quantity);
-            warehouse.WarehouseItems.Where(x => x.ProductId == newSuply.ProductId).ToList().ForEach(x => x.Quantity -= newSuply.Quantity);
-            product.Quantity -= newSuply.Quantity;
+            store.StoreItems.Where(x => x.ProductId == product.Id).ToList().ForEach(x => x.Quantity += quantity);
+            warehouse.WarehouseItems.Where(x => x.ProductId == product.Id).ToList().ForEach(x => x.Quantity -= quantity);
+            product.Quantity -= quantity;
 
             _storeRepo.Update(store);
             _warehouseRepo.Update(warehouse);

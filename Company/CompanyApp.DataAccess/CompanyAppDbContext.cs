@@ -67,7 +67,6 @@ namespace CompanyApp.DataAccess
                 .HasData(new WarehouseItem
                 {
                     Id = 1,
-                    Name = "Shoes",
                     Quantity = 50,
                     ProductId = 1,
                     WarehouseId = 1
@@ -75,7 +74,6 @@ namespace CompanyApp.DataAccess
                 new WarehouseItem
                 {
                     Id = 2,
-                    Name = "Shoes",
                     Quantity = 50,
                     ProductId = 1,
                     WarehouseId = 2
